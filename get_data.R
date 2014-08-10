@@ -9,13 +9,12 @@ if (!file.exists('power_consumption.zip')) {
 library(sqldf)
 
 #The SQL select statement
-sql <- "SELECT * FROM file WHERE Date = '01/02/2007' OR Date = '02/02/2007' ORDER BY Date, Time'"
-
-power.csv <- read.csv2('household_power_consumption.txt', sql)
+sql <- "SELECT * FROM file WHERE Date = '1/2/2007' OR Date = '2/2/2007' ORDER BY Date, Time"
+power <- "household_power_consumption.txt"
+power_csv <- read.csv2.sql(power, sql)
 
 # Combine the Date and Time fields
 power.csv$DateTime <- paste(power.csv$Date, power.csv$Time, sep=" ")
 
 # Convert the new DateTime field to a POSIXct object
-power.csv$DateTime <- as.POSIXct(strptime(test.csv$DateTime, "%d/%m/%Y %H:%M:%S")
-
+power.csv$DateTime <- as.POSIXct(strptime(power.csv$DateTime, "%d/%m/%Y %H:%M:%S"))
