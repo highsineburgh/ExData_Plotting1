@@ -11,7 +11,7 @@ library(sqldf)
 #The SQL select statement
 sql <- "SELECT * FROM file WHERE Date = '1/2/2007' OR Date = '2/2/2007' ORDER BY Date, Time"
 power <- "household_power_consumption.txt"
-power_csv <- read.csv2.sql(power, sql)
+power.csv <- read.csv2.sql(power, sql)
 
 # Combine the Date and Time fields
 power.csv$DateTime <- paste(power.csv$Date, power.csv$Time, sep=" ")
